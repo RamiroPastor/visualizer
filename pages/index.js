@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
+import { BaseImage } from "frontend/core/BaseImage/BaseImage";
 import firebaseConfig from "../firebase/config";
 
 
@@ -25,12 +26,12 @@ export async function getServerSideProps() {
 
 export default function Home (props) {
 
-  console.log(props.points);
-  console.log(props.materials);
+  // console.log(props.points);
+  // console.log(props.materials);
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen py-2'>
-      ESTUDIO CACTUS VISUALIZER TEST
-    </div>
+    <main className="Home">
+      <BaseImage/>
+    </main>
   )
 }
