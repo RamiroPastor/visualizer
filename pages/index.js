@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
-import { BaseImage } from "frontend/core/BaseImage/BaseImage";
+import { Viewer } from "frontend/core/Viewer/Viewer";
 import firebaseConfig from "../firebase/config";
 
 
@@ -30,8 +30,8 @@ export default function Home (props) {
   // console.log(props.materials);
 
   return (
-    <main className="Home">
-      <BaseImage/>
-    </main>
+    <Viewer
+      points={props.points}
+    />
   )
 }
