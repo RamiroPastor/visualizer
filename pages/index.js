@@ -32,6 +32,7 @@ export default function Home (props) {
   return (
     <Viewer
       points={props.points}
+      materials={props.materials}
     />
   )
 }

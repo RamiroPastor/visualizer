@@ -6,17 +6,27 @@ import { fingerprint } from "frontend/assets/svg/fingerprint"
 
 export function TouchButton(props) {
 
-  const x = props.x + "%";
-  const y = props.y + "%";
+  const isVisible = props.isVisible;
+  const p = props.point;
+  const onClick = props.onClick;
+
+  const x = p.coordX + "%";
+  const y = p.coordY + "%";
+  const title = p.name;
 
   return(
-    <button
-      className="TouchButton"
-      type="button"
-      title="click me"
-      style={{"--x": x, "--y": y}}
-    >
-      {fingerprint}
-    </button>
+    <>
+      { isVisible &&
+        <button
+          className="TouchButton"
+          type="button"
+          title={title}
+          style={{"--x": x, "--y": y}}
+          onClick={onClick}
+        >
+          {fingerprint}
+        </button>
+      }
+    </>
   )
 }
