@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column-reverse;
   margin: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
   background-color: #EEEEEE;
   @include desktop {
     flex-direction: row-reverse;
@@ -10,8 +10,8 @@
   &__preview {
     width: 8rem;
     height: 8rem;
-    padding: 0.6rem;
-    border-radius: 1rem;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
   }
   &__text {
     display: flex;
@@ -23,7 +23,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     text-align: center;
-    color: #555555;
+    color: #777777;
     @include desktop {
       width: 12rem;
     }
