@@ -26,8 +26,8 @@ export async function getServerSideProps() {
 
 export default function Home (props) {
 
-  // console.log(props.points);
-  // console.log(props.materials);
+  console.log(props.points);
+  console.log(props.materials);
 
   return (
     <Viewer
