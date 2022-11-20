@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { MaterialMenu } from "frontend/core/MaterialMenu/MaterialMenu";
 import { TouchButton  } from "frontend/core/TouchButton/TouchButton";
+import { LayerContext } from "frontend/contexts/LayerContext";
 
 
 
@@ -10,6 +11,7 @@ export function Viewer(props) {
   const points = props.points;
   const materials = props.materials;
 
+  const layers = useContext(LayerContext).layers;
 
   const [areTouchButtonsVisible, setTouchButtonsVisible] = useState(true);
   const [isMenuActive, setMenuActive] = useState(false);
@@ -41,6 +43,7 @@ export function Viewer(props) {
     setMenuMats([]);
   }
 
+  console.log(layers);
 
 
   return(
@@ -51,6 +54,14 @@ export function Viewer(props) {
           alt=""
           src="https://firebasestorage.googleapis.com/v0/b/visualizer-new-devs-test.appspot.com/o/base.jpeg?alt=media&token=358ccdea-3cf9-4751-ae48-4631e4700554"
         />
+        { layers.map((l,i) =>
+          <img
+            key={i}
+            className="Viewer__imageLayer"
+            alt={l.material}
+            src={l.image}
+          />
+        )}
         { points.map((p,i) =>
           <TouchButton
             key={i}

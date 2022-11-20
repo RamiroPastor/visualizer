@@ -37,6 +37,7 @@
   &__materials {
     display: flex;
     flex-direction: row-reverse;
+    align-items: flex-end;
     @include desktop {
       flex-direction: column;
     }
