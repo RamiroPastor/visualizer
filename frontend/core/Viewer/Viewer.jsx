@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useContext, useState } from "react";
 
 import { MaterialMenu } from "frontend/core/MaterialMenu/MaterialMenu";
@@ -43,7 +44,6 @@ export function Viewer(props) {
     setMenuMats([]);
   }
 
-  console.log(layers);
 
 
   return(

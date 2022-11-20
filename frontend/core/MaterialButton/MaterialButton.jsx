@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useContext, useEffect, useState } from "react";
 
 import { LayerContext } from "frontend/contexts/LayerContext";
@@ -36,7 +37,7 @@ export function MaterialButton(props) {
     } else {
       setActive(false);
     }
-  }, [layers])
+  }, [layers, material])
 
 
   return(
