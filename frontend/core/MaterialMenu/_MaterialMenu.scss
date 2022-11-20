@@ -1,0 +1,44 @@
+.MaterialMenu {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  @include desktop {
+    align-items: flex-start;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 1rem;
+    @include desktop {
+      flex-direction: column;
+    }
+  }
+  &__control {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    @include desktop {
+      flex-direction: row;
+    }
+    &Button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+    }
+  }
+  &__materials {
+    display: flex;
+    flex-direction: row-reverse;
+    @include desktop {
+      flex-direction: column;
+    }
+  }
+}

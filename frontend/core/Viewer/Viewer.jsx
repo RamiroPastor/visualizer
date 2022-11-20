@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { TouchButton } from "frontend/core/TouchButton/TouchButton";
+import { MaterialMenu } from "frontend/core/MaterialMenu/MaterialMenu";
+import { TouchButton  } from "frontend/core/TouchButton/TouchButton";
 
 
 
@@ -24,7 +25,8 @@ export function Viewer(props) {
       case "Pavimento" : searchKey = "EnRd7hAaNydVdVJ06qgF"; break;
       default: searchKey = ""
     }
-    return materials.filter(m => m.points[0] === searchKey)
+    const res = materials.filter((m) => m.points[0] === searchKey);
+    return res
   }
 
   function touchButtonClick(zoneName) {
@@ -32,6 +34,13 @@ export function Viewer(props) {
     setMenuActive(true);
     setMenuMats(selectMaterialsByZoneName(zoneName));
   }
+
+  function closeMenu() {
+    setMenuActive(false);
+    setTouchButtonsVisible(true);
+    setMenuMats([]);
+  }
+
 
 
   return(
@@ -51,6 +60,13 @@ export function Viewer(props) {
           />
         )}
       </div>
+
+      { isMenuActive &&
+        <MaterialMenu
+          materials={menuMats}
+          closeMenu={closeMenu}
+        />
+      }
       
     </div>
   )
