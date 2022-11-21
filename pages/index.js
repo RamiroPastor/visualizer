@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore/lite';
 
 import { Viewer } from "frontend/core/Viewer/Viewer";
 import firebaseConfig from "../firebase/config";
@@ -17,15 +17,23 @@ export async function getServerSideProps() {
     const materialsCol = collection(db, "materials");
     
     const pointsSnapshot = await getDocs(pointsCol);
-    const materialsSnapshot = await getDocs(materialsCol);
+    // const materialsSnapshot = await getDocs(materialsCol);
 
-    const points = pointsSnapshot.docs.map(doc => doc.data());
+    const points = pointsSnapshot.docs.map(doc => {
+      const id = doc.id;
+      const data = doc.data();
+      return {id, ...data}
+    });
+    const pointIds = points.map(p => p.id);
+
+    const materialsQuery = query(materialsCol, where("points", "array-contains-any", pointIds));
+    const materialsSnapshot = await getDocs(materialsQuery);
     const materials = materialsSnapshot.docs.map(doc => doc.data());
 
     return {props: {points, materials}}
 
   } catch (error) {
-
+  
     console.error("ERROR!!! " + error.code);
     const points = mockPoints;
     const materials = mockMaterials;

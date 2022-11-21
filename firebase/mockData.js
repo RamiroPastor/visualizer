@@ -1,11 +1,32 @@
 
 
 export const mockPoints =
-  [ {coordY: 86, coordX: 40, name: 'Pavimento'}
-  , {coordY: 38, coordX: 71, name: 'Frente'}
-  , {name: 'Encimera', coordY: 55, coordX: 52}
-  , {name: 'Entrepaños', coordX: 61, coordY: 47}
-  ];
+[  
+  {
+    id: 'EnRd7hAaNydVdVJ06qgF',
+    name: 'Pavimento',
+    coordX: 40,
+    coordY: 86
+  },
+  {
+    id: 'Ks5CthbPwAvd2TNxzHEl',
+    name: 'Frente',
+    coordY: 38,
+    coordX: 71
+  },
+  {
+    id: 'cd84QwP9gOhAU5p47UDn',
+    coordX: 52,
+    name: 'Encimera',
+    coordY: 55
+  },
+  {
+    id: 'i7EVutewtycZY2qwmldG',
+    coordX: 61,
+    name: 'Entrepaños',
+    coordY: 47
+  }
+]
 
 
 
