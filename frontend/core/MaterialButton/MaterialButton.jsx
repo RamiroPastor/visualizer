@@ -9,35 +9,33 @@ export function MaterialButton(props) {
 
   const material = props.material;
 
-  const {layers, toggleLayer} = useContext(LayerContext);
+  const {focusPoint, _, layers, toggleLayer} = useContext(LayerContext);
   
   const [isActive, setActive] = useState(false);
 
 
   const onClick = () => {
-    const zone = material.points[0];
     toggleLayer(
-      { zone
+      { point: focusPoint
       , material: material.name
-      , image: material.layers[zone]
+      , image: material.layers[focusPoint]
       }
     )
   }
 
   useEffect(() => {
     const mat  = material.name;
-    const zone = material.points[0];
-    const layerActive = 
+    const layerIsActive = 
       layers.reduce(
-        (acc, l) => acc || (l.zone === zone && l.material === mat), 
+        (acc, l) => acc || (l.point === focusPoint && l.material === mat), 
         false
       );
-    if (layerActive) {
+    if (layerIsActive) {
       setActive(true);
     } else {
       setActive(false);
     }
-  }, [layers, material])
+  }, [focusPoint, layers, material])
 
 
   return(

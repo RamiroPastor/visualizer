@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext, useState } from "react";
 
+import { API } from "frontend/base/js/axios";
 import { MaterialMenu } from "frontend/core/MaterialMenu/MaterialMenu";
 import { TouchButton  } from "frontend/core/TouchButton/TouchButton";
 import { LayerContext } from "frontend/contexts/LayerContext";
@@ -10,38 +11,32 @@ import { LayerContext } from "frontend/contexts/LayerContext";
 export function Viewer(props) {
 
   const points = props.points;
-  const materials = props.materials;
 
-  const layers = useContext(LayerContext).layers;
+  const layerContext = useContext(LayerContext);
+  const setFocusPoint = layerContext.setFocusPoint;
+  const layers = layerContext.layers;
 
   const [areTouchButtonsVisible, setTouchButtonsVisible] = useState(true);
   const [isMenuActive, setMenuActive] = useState(false);
   const [menuMats, setMenuMats] = useState([]);
+  
 
-
-  function selectMaterialsByZoneName(zoneName) {
-    let searchKey = "";
-    switch (zoneName) {
-      case "Encimera"  : searchKey = "cd84QwP9gOhAU5p47UDn"; break;
-      case "Entrepaños": searchKey = "i7EVutewtycZY2qwmldG"; break;
-      case "Frente"    : searchKey = "Ks5CthbPwAvd2TNxzHEl"; break;
-      case "Pavimento" : searchKey = "EnRd7hAaNydVdVJ06qgF"; break;
-      default: searchKey = ""
-    }
-    const res = materials.filter((m) => m.points[0] === searchKey);
-    return res
-  }
-
-  function touchButtonClick(zoneName) {
+  async function touchButtonClick(pointID) {
     setTouchButtonsVisible(false);
     setMenuActive(true);
-    setMenuMats(selectMaterialsByZoneName(zoneName));
+    setFocusPoint(pointID);
+    API
+      .post("/materials/listByPoint", {pointID})
+      .then(res => {
+        setMenuMats(res.data.materials)
+      })
   }
 
   function closeMenu() {
     setMenuActive(false);
     setTouchButtonsVisible(true);
     setMenuMats([]);
+    setFocusPoint("");
   }
 
 
@@ -67,7 +62,7 @@ export function Viewer(props) {
             key={i}
             isVisible={areTouchButtonsVisible}
             point={p}
-            onClick={() => touchButtonClick(p.name)}
+            onClick={() => touchButtonClick(p.id)}
           />
         )}
       </div>

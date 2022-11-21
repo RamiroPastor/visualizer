@@ -7,26 +7,27 @@ export const LayerContext = React.createContext([]);
 
 export function LayerContextProvider(props){
 
+  const [focusPoint, setFocusPoint] = useState("");
   const [layers, setLayers] = useState([]);
 
 
   function toggleLayer(layer) {
 
-    const zoneAlreadyLayered =
+    const pointAlreadyLayered =
       layers.reduce(
-        (acc, l) => acc || l.zone === layer.zone, 
+        (acc, l) => acc || l.point === layer.point, 
         false
       );
 
     const layerAlreadyActive = 
       layers.reduce(
-        (acc, l) => acc || (l.zone === layer.zone && l.material === layer.material), 
+        (acc, l) => acc || (l.point === layer.point && l.material === layer.material), 
         false
       );
     
 
-    if (zoneAlreadyLayered) {
-      const updatedLayers = layers.filter(l => l.zone !== layer.zone);
+    if (pointAlreadyLayered) {
+      const updatedLayers = layers.filter(l => l.point !== layer.point);
       if (layerAlreadyActive) {
         setLayers(updatedLayers);
       }
@@ -42,7 +43,9 @@ export function LayerContextProvider(props){
   return(
     <LayerContext.Provider
       value={
-        { layers
+        { focusPoint
+        , setFocusPoint
+        , layers
         , toggleLayer
         }
       }
