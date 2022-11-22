@@ -5,7 +5,9 @@
 ## Introducción:
 
 Nos encontramos, una vez más, ante el eterno debate: *DRY Css* contra *WET Css*, donde 
-*DRY* viene de *Don't Repeat Yourself* y *WET* viene de *We Enjoy Typing*. En la página principal de
+*DRY* viene de *Don't Repeat Yourself* y *WET* viene de *We Enjoy Typing*. 
+
+En la página principal de
 Tailwind CSS, inmediatamente debajo del epígrafe "Best Practices don't actually work", se puede encontrar 
 un enlace al siguiente ensayo: [https://adamwathan.me/css-utility-classes-and-separation-of-concerns/](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
 
