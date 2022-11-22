@@ -1,6 +1,6 @@
 # Mis reflexiones sobre Tailwind CSS
 
-**Resumen:** Esta herramienta es una trampa para novatos, un engañabobos y un sacacuartos.
+**Resumen:** Esta herramienta es una trampa para novatos, engañabobos y sacacuartos.
 
 ## Introducción:
 
