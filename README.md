@@ -25,36 +25,42 @@ Expongo ahora las razones por las que pienso que es un error elegir la segunda o
 de la forma en la que trabaja Tailwind CSS y por tanto es un error desarrollar y/o utilizar una herramienta como Tailwind CSS:
 
   1. Las buenas prácticas sí funcionan, por eso se llaman buenas prácticas.
-  
+
   2. Si partes de un HTML vacío y un archivo CSS con muchas reglas para distintas etiquetas y clases, el navegador te muestra un bonito rectángulo blanco. Si partes de un archivo HTML bien construido con etiquetas y contenido, y una hoja de CSS vacía, el navegador te muestra
   una página web legible y muy fea. Este ejemplo tan tonto evidencia que CSS debe depender del HTML, porque CSS por sí solo no hace nada.
 
   3. Sobre la repetición:
 
-    - Efectivamente, estoy totalmente a favor de prácticas como evitar un "copy+paste" en 10 líneas con ligeras diferencias, y abstraer 
-    esa funcionalidad en un componente o una función parametrizada. Pero no se puede evitar repetir ciertos "elementos básicos". 
-    No tendría sentido, por ejemplo, pensar en desarrollar una librería de ECMAScript con el principal objetivo de evitar repetir tanto la 
-    palabra "function". O reinventar el castellano para no usar tanto la palabra "ya". O reinventar el castellano para no usar tanto la letra "a". Podemos, de hecho, iterar esa idea con todas las letras hasta quedarnos solo con la última, y entonces tendríamos la siguiente frase en español: "zzzzzz zzzz zz zzzzzzzzzzzzz zz zzzzzz zzzz zzzzzz zzzzzzzzzzzzz". En nuestro afán de eliminar la repetición, hemos llegado al súmmun de la repetición. Reducción al absurdo. 
-    Cabría aquí reflexionar sobre los lenguajes naturales occidentales en oposición a los orientales, pero eso lamentablemente está fuera del ámbito de este ensayo.
+  - Efectivamente, estoy totalmente a favor de prácticas como evitar un "copy+paste" en 10 líneas con ligeras diferencias, y abstraer 
+  esa funcionalidad en un componente o una función parametrizada. Pero no se puede evitar repetir ciertos "elementos básicos". 
 
-    - Resulta que CSS está formado en su totalidad por elementos básicos. Si quieres que algo tenga `display: flex` no tienes otra
-    opción que escribirlo, no hay atajos. Todos nos hemos encontrado ante el tedio de escribir una y otra vez las líneas 
-    `display: flex; justify-content: center; align-items: center;`, pero no hay forma de evitarlo. Con Tailwind simplemente se acorta
-    ligeramente ya que basta con escribir `flex justify-center items-center`, pero vas a repetirlo igualmente por todo tu código.
+  No tendría sentido, por ejemplo, pensar en desarrollar una librería de ECMAScript con el principal objetivo de evitar repetir tanto la 
+  palabra "function". O reinventar el castellano para no usar tanto la palabra "ya". O reinventar el castellano para no usar tanto la letra "a". Podemos, de hecho, iterar esa idea con todas las letras hasta quedarnos solo con la última, y entonces tendríamos la siguiente frase en español: "zzzzzz zzzz zz zzzzzzzzzzzzz zz zzzzzz zzzz zzzzzz zzzzzzzzzzzzz". En nuestro afán de eliminar la repetición, hemos llegado al súmmun de la repetición. Reducción al absurdo. 
+
+  Cabría aquí reflexionar sobre los lenguajes naturales occidentales en oposición a los orientales, pero eso lamentablemente está fuera del ámbito de este ensayo.
+  
+  - Resulta que CSS está formado en su totalidad por elementos básicos. Si quieres que algo tenga `display: flex` no tienes otra
+  opción que escribirlo, no hay atajos. Todos nos hemos encontrado ante el tedio de escribir una y otra vez las líneas 
+  `display: flex; justify-content: center; align-items: center;`, pero no hay forma de evitarlo. Con Tailwind simplemente se acorta
+  ligeramente ya que basta con escribir `flex justify-center items-center`, pero vas a repetirlo igualmente por todo tu código.
   
   4. La aparente simplificación no es tal, ya que al separar el código CSS a su propio archivo, el editor de texto sabe que solo pulsando
   "jus" y pulsando el tabulador, él debe escribir `justify-content: ;` y solo con "cen" y tabulador, obtienes `center`.
 
   5. Se introduce un nuevo nivel de complejidad nada despreciable, pues ahora no sólo debes conocer a fondo CSS 
   y su funcionamiento demencial, también debes conocer la nueva sintaxis introducida por la herramienta (Tailwind en este caso).
-  Esto, por supuesto, es una fuente interminable de dolores de cabeza. Por ejemplo, en mis primeros y muy reticentes pasos para aprender 
+  Esto, por supuesto, es una fuente interminable de dolores de cabeza. 
+  
+  Por ejemplo, en mis primeros y muy reticentes pasos para aprender 
   dicho funcionamiento, he sido incapaz de conseguir que la clase `justify-center` funcione, tras más de una hora de búsqueda en la extensa
   documentación. Estoy seguro de que existe alguna forma de conseguir que esa clase funcione como se espera, pero ni quiero ni necesito 
   saberlo. Y no lo necesito porque sé CSS.
 
   6. En línea con el punto anterior, esta herramienta no te evita tener que aprender CSS, es evidente que está enfocada a profesionales.
   Más aún, un novato tendría mucho más difícil resolver los problemas que le surjan de su código CSS, porque para poder realizar una 
-  búsqueda efectiva en internet, deberá primero traducir sus clases de Tailwind a CSS normal y corriente. De hecho, parece muy probable
+  búsqueda efectiva en internet, deberá primero traducir sus clases de Tailwind a CSS normal y corriente. 
+  
+  De hecho, parece muy probable
   que el uso de esta herramienta implica mantener siempre abierta una pestaña del navegador con la única finalidad de traducir de CSS a
   tailwind, para cualquier desarrollador salvo los que la han construido.
 
@@ -78,12 +84,12 @@ de la forma en la que trabaja Tailwind CSS y por tanto es un error desarrollar y
 
   11. Cerca del final de su artículo, el autor de la herramienta introduce dos nuevos conceptos clave:
 
-    - "Every line of new CSS is still an opportunity for new complexity". Cierto, muy cierto... ¡Ah! eso también ocurre con
-    HTML... ¡y con javascript también! Llegados a este punto, es evidente que la solución es no escribir ni una línea de HTML, CSS o JS y 
-    cambiar de profesión.
+  - "Every line of new CSS is still an opportunity for new complexity". Cierto, muy cierto... ¡Ah! eso también ocurre con
+  HTML... ¡y con javascript también! Llegados a este punto, es evidente que la solución es no escribir ni una línea de HTML, CSS o JS y 
+  cambiar de profesión.
 
-    - "Enforced consistency", donde el autor afirma que esta librería ayuda a limitar la cantidad de colores o tamaños de fuente distintos
-    que conviven en tu aplicación web. Para rebatirlo, usaré los dos siguientes puntos.
+  - "Enforced consistency", donde el autor afirma que esta librería ayuda a limitar la cantidad de colores o tamaños de fuente distintos
+  que conviven en tu aplicación web. Para rebatirlo, usaré los dos siguientes puntos.
 
   12. Es totalmente falso que escribir `text-2xl` en lugar de `font-size: 1.5rem;` ayude a limitar la cantidad de tamaños de fuente. 
   Cuando yo quiera asignar un tamaño de fuente en algún nuevo elemento, y no quiera que sea el mismo que ya usé en el pasado, no me queda
@@ -120,7 +126,7 @@ Me niego a utilizar herramientas como Tailwind CSS o, más en general, a escribi
 tenga la mente cerrada a nuevas tecnologías, o porque no quiera aprender. No me niego por tener envidia de esta persona que ha 
 llevado a cabo un enorme esfuerzo y quiere venderlo. No me niego por ser un fanático incapaz de cambiar mi punto de vista.
 
-Me niego porque yo ya pasé por ahí hace años, y conozco de primera mano la incoherencia que resulta de todo esto. y tengo un grupito 
+Me niego porque yo ya pasé por ahí hace años, y conozco de primera mano la incoherencia que resulta de todo esto. Y tengo un grupito 
 de neuronas en el cerebro que se amotinan en mi contra cada vez que pretendo introducirme en los terrenos del absurdo y la incoherencia.
 De hecho, no es que no quiera usar Tailwind CSS, es que me es físicamente imposible porque la configuración de impulsos eléctricos de
 mi sistema nervioso no me lo permite.
