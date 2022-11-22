@@ -55,7 +55,6 @@ de la forma en la que trabaja Tailwind CSS y por tanto es un error desarrollar y
    5. Se introduce un nuevo nivel de complejidad nada despreciable, pues ahora no sólo debes conocer a fondo CSS 
    y su funcionamiento demencial, también debes conocer la nueva sintaxis introducida por la herramienta (Tailwind en este caso).
    Esto, por supuesto, es una fuente interminable de dolores de cabeza. 
-  
    Por ejemplo, en mis primeros y muy reticentes pasos para aprender 
    dicho funcionamiento, he sido incapaz de conseguir que la clase `justify-center` funcione, tras más de una hora de búsqueda en la extensa
    documentación. Estoy seguro de que existe alguna forma de conseguir que esa clase funcione como se espera, pero ni quiero ni necesito 
@@ -64,7 +63,6 @@ de la forma en la que trabaja Tailwind CSS y por tanto es un error desarrollar y
    6. En línea con el punto anterior, esta herramienta no te evita tener que aprender CSS, es evidente que está enfocada a profesionales.
    Más aún, un novato tendría mucho más difícil resolver los problemas que le surjan de su código CSS, porque para poder realizar una 
    búsqueda efectiva en internet, deberá primero traducir sus clases de Tailwind a CSS normal y corriente. 
-  
    De hecho, parece muy probable
    que el uso de esta herramienta implica mantener siempre abierta una pestaña del navegador con la única finalidad de traducir de CSS a
    tailwind, para cualquier desarrollador salvo los que la han construido.
@@ -97,7 +95,7 @@ de la forma en la que trabaja Tailwind CSS y por tanto es un error desarrollar y
        que conviven en tu aplicación web. Para rebatirlo, usaré los dos siguientes puntos.
 
    12. Es totalmente falso que escribir `text-2xl` en lugar de `font-size: 1.5rem;` ayude a limitar la cantidad de tamaños de fuente. 
-   Cuando yo quiera asignar un tamaño de fuente en algún nuevo elemento, y no quiera que sea el mismo que ya usé en el pasado, no me queda
+   Cuando yo quiera asignar un tamaño de fuente en algún nuevo elemento, y quiera que sea el mismo que ya usé en el pasado, no me queda
    más remedio que buscar en mi código ese tamaño de fuente para saber cual usé anteriormente. Que la sintaxis sea distinta no me evita 
    tener que rebuscar el código que ya escribí.
 
