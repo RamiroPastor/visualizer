@@ -42,7 +42,7 @@ export function Viewer(props) {
 
 
   return(
-    <div className="Viewer">
+    <div className="Viewer relative grow flex justify-center items-center w-full h-screen">
 
       <div className="Viewer__image">
         <img

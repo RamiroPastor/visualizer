@@ -9,7 +9,7 @@ import "styles/index.scss"
 function MyApp({ Component, pageProps }) {
 
   return(
-    <div className="App">
+    <div className="App grow flex w-full h-full bg-gray-300">
 
       <LayerContextProvider>
 
